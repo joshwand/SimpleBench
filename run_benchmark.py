@@ -81,8 +81,8 @@ def run_benchmark(
     else:
         dataset = load_dataset(dataset_path)
 
-    if type(q_ids) == int and q_ids > 0:
-      q_ids = [q_ids]
+    if type(q_ids) == int:
+      q_ids = [q_ids] if q_ids > 0 else []
 
     if len(q_ids) > 0:
         dataset = list(filter(lambda x: x["question_id"] in q_ids, dataset))
